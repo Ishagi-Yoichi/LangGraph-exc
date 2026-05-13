@@ -9,6 +9,7 @@ from langchain_openrouter import ChatOpenRouter
 from langchain_core.language_models import BaseChatModel
 from dotenv import load_dotenv, find_dotenv
 from src.lg_exc.stage_01.tools import multiply
+from src.lg_exc.utils.graph_viz import save_graph_image
 load_dotenv(find_dotenv())
 
 
@@ -50,7 +51,7 @@ def tool_calling_app(*, model:str | None = None):
 def main() -> None:
     demo_tool_binding()
     app = tool_calling_app()
-    save_
+    save_graph_image(app, filename="artifacts/agent_with_tool_call.png")
 
 if __name__ == "__main__":
     main()
